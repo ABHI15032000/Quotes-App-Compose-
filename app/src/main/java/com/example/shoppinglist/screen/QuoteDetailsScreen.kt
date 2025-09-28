@@ -1,5 +1,6 @@
 package com.example.shoppinglist.screen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,11 +26,17 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.shoppinglist.ui.theme.DataManager
 import models.Quote
 
 
 @Composable
  fun QuoteDetail(quote: Quote) {
+
+    BackHandler {
+        DataManager.switchPages(null)
+    }
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -54,7 +61,7 @@ import models.Quote
             ) {
                 Image(
                     imageVector = Icons.Filled.Info,
-                    colorFilter = ColorFilter.tint(Color.Blue),
+                    colorFilter = ColorFilter.tint(Color.Black),
                     contentDescription = "Quote",
                     modifier = Modifier
                         .size(80.dp)

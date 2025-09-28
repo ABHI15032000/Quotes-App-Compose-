@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import models.Quote
 
 @Composable
-fun QuoteListScreen(data: List<Quote>, onClick: () -> Unit) {
+fun QuoteListScreen(data: List<Quote>, onClick: (quote: Quote) -> Unit) {
 
     Column {
         Text(
@@ -25,8 +25,6 @@ fun QuoteListScreen(data: List<Quote>, onClick: () -> Unit) {
             style = MaterialTheme.typography.bodyMedium,
             fontFamily = FontFamily.Serif
         )
-        QuoteList(data) {
-            onClick
-        }
+        QuoteList(data,onClick)
     }
 }

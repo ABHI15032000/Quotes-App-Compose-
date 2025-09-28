@@ -1,3 +1,4 @@
+import android.R.attr.onClick
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,10 +26,10 @@ import androidx.compose.ui.unit.dp
 import models.Quote
 
 @Composable
-fun QuoteListItem(quote: Quote, onClick:()-> Unit) {
+fun QuoteListItem(quote: Quote, onClick:(quote: Quote)-> Unit) {
     Card(
         modifier = Modifier.padding(8.dp)
-            .clickable{onClick()},
+            .clickable{onClick(quote)},
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         Row(modifier = Modifier.padding(16.dp)) {
@@ -39,7 +40,7 @@ fun QuoteListItem(quote: Quote, onClick:()-> Unit) {
                 alignment = Alignment.TopStart,
                 modifier = Modifier
                     .size(40.dp)
-                    .background(Color.Blue)
+                    .background(Color.Black)
             )
             Spacer(modifier = Modifier.padding(4.dp))
             Column(modifier = Modifier.weight(1f)) {
